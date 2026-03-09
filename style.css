@@ -1,23 +1,76 @@
 body{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color:aquamarine;
     background-image:url('assets/car.jpeg');
     text-align: center;
    body {cursor: url(http://www.rw-designer.com/cursor-extern.php?id=19865, auto);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 
 }
 
-.beep:hover{
-     text-shadow:1px 1px 10px #14cf1e, 10px 10px 10px #00226c;
-
+.hover-container {
+    display: inline-block;
+    position: relative;
 }
 
-.beep{
+.beep {
+    letter-spacing: 0.1em;
+    display: inline-block;
+    position: relative;
+    transition: transform 0.3s ease-out;
     text-align: center;
     background-color: white;
     font-size: 50px;
      text-shadow:1px 1px 10px #fff, 3px 3px 10px #97e8ff;
      padding: 20px;
+}
+
+.beep:hover {
+    transform: scale(1.1);
+    text-shadow:1px 1px 10px #14cf1e, 10px 10px 10px #00226c;
+
+    
+}
+
+.beep:hover::before,
+.beep:hover::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: burst 0.8s ease-out forwards;
+}
+
+.beep:hover::before {
+    background: radial-gradient(circle, rgba(255, 0, 150, 0.6), transparent);
+    z-index: -1;
+}
+
+.beep:hover::after {
+    background: radial-gradient(circle, rgba(0, 200, 255, 0.6), transparent);
+    z-index: -2;
+}
+
+@keyframes burst {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+    }
+    70% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+    }
 }
 
 .flex-container {
