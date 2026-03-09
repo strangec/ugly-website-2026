@@ -5,10 +5,11 @@ body{
 }
 
 h1 {
-  animation: blinker 1s linear infinite;
+    text-align: center;
+    text-shadow:1px 1px 10px #fff, 3px 3px 10px #97e8ff;
+}
 
-@keyframes blinker {
-  50% {
-    opacity: 0;
-  }
-}}
+h1:hover{
+     text-shadow:1px 1px 10px #14cf1e, 10px 10px 10px #00226c;
+
+}
